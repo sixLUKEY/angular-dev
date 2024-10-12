@@ -16,4 +16,5 @@ export enum TICKET_STATUS {
   IN_PROGRESS,
   COMPLETED,
   ON_HOLD,
+  DEFAULT,
 }
