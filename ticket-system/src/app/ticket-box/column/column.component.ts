@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ColumnInterface } from './column';
 import { TICKET_STATUS } from '../../ticket';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-column',
@@ -10,15 +11,12 @@ import { TICKET_STATUS } from '../../ticket';
   styleUrl: './column.component.css',
 })
 export class ColumnComponent {
-  @Input() column: Column;
-  constructor(column: Column) {
-    this.column = column;
-  }
+  @Input() column!: Column;
 }
 
 export class Column implements ColumnInterface {
-  position: number = 1;
-  name: string = '';
+  position: number;
+  name: string;
   opacity: number = 100;
   primaryColor: string = 'purple';
   hoveredTicketStatus: TICKET_STATUS = TICKET_STATUS.DEFAULT;
@@ -30,6 +28,25 @@ export class Column implements ColumnInterface {
 }
 
 export const columnArray: Column[] = [
-  new Column(1, 'Tickets'),
-  new Column(2, 'TODOS'),
+  {
+    position: 1,
+    name: 'default',
+    hoveredTicketStatus: TICKET_STATUS.DEFAULT,
+    primaryColor: 'purple',
+    opacity: 100,
+  },
+  {
+    position: 2,
+    name: 'TICKETS',
+    hoveredTicketStatus: TICKET_STATUS.DEFAULT,
+    primaryColor: 'purple',
+    opacity: 100,
+  },
+  {
+    position: 3,
+    name: 'TODOS',
+    hoveredTicketStatus: TICKET_STATUS.DEFAULT,
+    primaryColor: 'purple',
+    opacity: 100,
+  },
 ];
