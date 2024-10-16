@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ColumnInterface } from './column';
 import { TICKET_STATUS } from '../../ticket';
-import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-column',
@@ -45,6 +44,13 @@ export const columnArray: Column[] = [
   {
     position: 3,
     name: 'TODOS',
+    hoveredTicketStatus: TICKET_STATUS.DEFAULT,
+    primaryColor: 'purple',
+    opacity: 100,
+  },
+  {
+    position: 4,
+    name: 'ARCHIVE',
     hoveredTicketStatus: TICKET_STATUS.DEFAULT,
     primaryColor: 'purple',
     opacity: 100,
