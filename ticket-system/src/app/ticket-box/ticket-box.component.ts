@@ -6,12 +6,11 @@ import {
   columnArray,
   ColumnComponent,
 } from './column/column.component';
-import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-ticket-box',
   standalone: true,
-  imports: [ColumnComponent, NgForOf],
+  imports: [ColumnComponent],
   templateUrl: './ticket-box.component.html',
   styleUrl: './ticket-box.component.css',
 })

@@ -9,9 +9,8 @@
     <!-- <div class="archive"> -->
     <!--   @for (ticket of archive; track ticket.id) {} -->
     <!-- </div> -->
-    <app-column
-      *ngFor="let column of columnArray"
-      [column]="column"
-    ></app-column>
+    @for (column of columnArray; track column.position) {
+      <app-column [column]="column" />
+    }
   </div>
 </section>
