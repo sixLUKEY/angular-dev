@@ -1,16 +1,7 @@
 <section>
   <div class="flex justify-between">
-    <!-- <div class="backlog"> -->
-    <!--   @for (ticket of backlog; track ticket.id) {} -->
-    <!-- </div> -->
-    <!-- <div class="inProgress"> -->
-    <!--   @for (ticket of inProgress; track ticket.id) {} -->
-    <!-- </div> -->
-    <!-- <div class="archive"> -->
-    <!--   @for (ticket of archive; track ticket.id) {} -->
-    <!-- </div> -->
     @for (column of columnArray; track column.position) {
-      <app-column [column]="column" />
+      <app-column [column]="column" class="w-full" />
     }
   </div>
 </section>
