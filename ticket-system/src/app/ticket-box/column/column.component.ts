@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { ColumnInterface, ColumnStyle } from './column';
-import { TICKET_STATUS } from '../../ticket';
 import { ColumnColorDirective } from '../../directives/column-color/column-color.directive';
 import { BORDER_STYLE } from '../../enums/enums';
+import { TICKET_STATUS } from '../ticket/ticket';
 
 @Component({
   selector: 'app-column',

@@ -8,8 +8,8 @@ export interface Ticket {
 
 export interface Todo {
   task: string;
-  completed: boolean;
-  time: Date;
+  // completed: boolean;
+  // time: any;
 }
 
 export enum TICKET_STATUS {
@@ -18,3 +18,5 @@ export enum TICKET_STATUS {
   ON_HOLD,
   DEFAULT,
 }
+
+export const tickets: Ticket[] = [];
