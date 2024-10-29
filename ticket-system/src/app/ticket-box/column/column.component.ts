@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ColumnInterface, ColumnStyle } from './column';
 import { ColumnColorDirective } from '../../directives/column-color/column-color.directive';
 import { BORDER_STYLE } from '../../enums/enums';
-import { Ticket, TICKET_STATUS } from '../ticket/ticket';
+import { existingTickets, Ticket, TICKET_STATUS } from '../ticket/ticket';
 
 @Component({
   selector: 'app-column',
@@ -20,12 +20,32 @@ export class Column implements ColumnInterface {
   name: string;
   hoveredTicketStatus: TICKET_STATUS = TICKET_STATUS.DEFAULT;
   style?: ColumnStyle;
-  tickets: Ticket[] = [];
+  tickets: Ticket[];
+  ticketIds: string[] = [];
 
-  constructor(position: number, name: string, style?: ColumnStyle) {
+  constructor(
+    position: number,
+    name: string,
+    ticketIds?: string[],
+    style?: ColumnStyle,
+  ) {
     this.position = position;
     this.name = name;
     this.style = style || defaultColumnStyle;
+    this.ticketIds = this.ticketIds || ticketIds;
+    this.tickets = this.initTickets(ticketIds);
+  }
+
+  initTickets(ticketIds?: string[]): Ticket[] {
+    let tickets: Ticket[] = [];
+
+    if (!ticketIds || ticketIds.length < 1) return tickets;
+
+    return (tickets = ticketIds
+      .map((t) => {
+        existingTickets.find((ticket) => ticket.id === t);
+      })
+      .filter((t) => t !== undefined));
   }
 }
 
@@ -36,33 +56,33 @@ const defaultColumnStyle: ColumnStyle = {
   backgroundColor: '#E9E9E9',
 };
 
-export const columnArray: Column[] = [
+export const columnInfo = [
   {
     position: 1,
     name: 'default',
     hoveredTicketStatus: TICKET_STATUS.DEFAULT,
     style: defaultColumnStyle,
-    tickets: [],
+    ticketIds: ['123', '1234'],
   },
   {
     position: 2,
     name: 'TICKETS',
     hoveredTicketStatus: TICKET_STATUS.DEFAULT,
     style: defaultColumnStyle,
-    tickets: [],
+    ticketIds: [],
   },
   {
     position: 3,
     name: 'TODOS',
     hoveredTicketStatus: TICKET_STATUS.DEFAULT,
     style: defaultColumnStyle,
-    tickets: [],
+    ticketIds: ['12345'],
   },
   {
     position: 4,
     name: 'ARCHIVE',
     hoveredTicketStatus: TICKET_STATUS.DEFAULT,
     style: defaultColumnStyle,
-    tickets: [],
+    ticketIds: ['123456'],
   },
 ];

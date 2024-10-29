@@ -34,9 +34,33 @@ export enum TASK_STATUS {
   WONT_COMPLETE,
 }
 
-export const tickets: Ticket[] = [
+export const existingTickets: Ticket[] = [
   {
     id: '123',
+    name: 'ticket-1',
+    description: 'ticket-1 description',
+    todos: [],
+    status: TICKET_STATUS.DEFAULT,
+    commitHash: '586eb9cd',
+  },
+  {
+    id: '1234',
+    name: 'ticket-1',
+    description: 'ticket-1 description',
+    todos: [],
+    status: TICKET_STATUS.DEFAULT,
+    commitHash: '586eb9cd',
+  },
+  {
+    id: '12345',
+    name: 'ticket-1',
+    description: 'ticket-1 description',
+    todos: [],
+    status: TICKET_STATUS.DEFAULT,
+    commitHash: '586eb9cd',
+  },
+  {
+    id: '123456',
     name: 'ticket-1',
     description: 'ticket-1 description',
     todos: [],
