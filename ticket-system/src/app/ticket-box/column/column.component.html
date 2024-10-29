@@ -1,4 +1,8 @@
 <div [appColumnColor]="column" class="h-full">
   {{ column.name }}
-  <div></div>
+  <div>
+    @for (ticket of column.tickets; track ticket.id) {
+      <app-ticket [ticket]="ticket" />
+    }
+  </div>
 </div>
