@@ -13,6 +13,25 @@ import { TicketComponent } from '../ticket/ticket.component';
 })
 export class ColumnComponent {
   @Input() column!: Column;
+  // tickets: Ticket[];
+
+  constructor() {
+    // this.tickets = this.initTickets(this.column.ticketIds);
+    // console.log(this);
+    // console.log(this.initTickets(this.column.ticketIds));
+  }
+
+  initTickets(ticketIds?: string[]): Ticket[] {
+    let tickets: Ticket[] = [];
+
+    if (!ticketIds || ticketIds.length < 1) return tickets;
+
+    return (tickets = ticketIds
+      .map((t) => {
+        return existingTickets.find((ticket) => ticket.id === t);
+      })
+      .filter((t) => t !== undefined));
+  }
 }
 
 export class Column implements ColumnInterface {
@@ -20,7 +39,6 @@ export class Column implements ColumnInterface {
   name: string;
   hoveredTicketStatus: TICKET_STATUS = TICKET_STATUS.DEFAULT;
   style?: ColumnStyle;
-  tickets: Ticket[];
   ticketIds: string[] = [];
 
   constructor(
@@ -33,18 +51,5 @@ export class Column implements ColumnInterface {
     this.name = name;
     this.style = style || defaultColumnStyle;
     this.ticketIds = this.ticketIds || ticketIds;
-    this.tickets = this.initTickets(ticketIds);
-  }
-
-  initTickets(ticketIds?: string[]): Ticket[] {
-    let tickets: Ticket[] = [];
-
-    if (!ticketIds || ticketIds.length < 1) return tickets;
-
-    return (tickets = ticketIds
-      .map((t) => {
-        existingTickets.find((ticket) => ticket.id === t);
-      })
-      .filter((t) => t !== undefined));
   }
 }

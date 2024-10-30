@@ -24,7 +24,7 @@ export const defaultColumnStyle: ColumnStyle = {
   backgroundColor: '#E9E9E9',
 };
 
-export const columnInfo = [
+export const columnList: Column[] = [
   {
     position: 1,
     name: 'default',
@@ -54,7 +54,3 @@ export const columnInfo = [
     ticketIds: ['123456'],
   },
 ];
-
-export const existingColumns: Column[] = columnInfo.map((c) => {
-  return new Column(c.position, c.name, c.ticketIds);
-});

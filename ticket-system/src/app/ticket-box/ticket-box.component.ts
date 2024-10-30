@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ColumnComponent } from './column/column.component';
 import { Ticket } from './ticket/ticket';
-import { existingColumns } from './column/column';
+import { columnList } from './column/column';
 
 @Component({
   selector: 'app-ticket-box',
@@ -15,5 +15,5 @@ export class TicketBoxComponent {
   backlog: Ticket[] = [];
   inProgress: Ticket[] = [];
   archive: Ticket[] = [];
-  columnArray = existingColumns;
+  columnArray = columnList;
 }
