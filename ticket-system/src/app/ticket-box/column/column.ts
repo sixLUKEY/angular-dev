@@ -18,9 +18,9 @@ export interface ColumnStyle {
 }
 
 export const defaultColumnStyle: ColumnStyle = {
-  primaryColor: '#C7392C',
+  primaryColor: '#B9B9B9',
   opacity: 100,
-  borderStyle: BORDER_STYLE.none,
+  borderStyle: BORDER_STYLE.dashed,
   backgroundColor: '#E9E9E9',
 };
 
